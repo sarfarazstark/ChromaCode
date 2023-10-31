@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Noto+Sans&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  height: 100vh;
+  width: 100vw;
+  background-color: #202124;
+  color: #cdcdcd;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  font-family: Fira code, monospace;
+  padding-inline: 10rem;
+  align-items: center;
+}
+
+main{
+  min-width: 600px;
+  overflow: hidden;
+  resize: horizontal;
+  width: auto;
+  padding: 50px;
+  background: linear-gradient(300deg, #CD2F9A, #6D3CE6)
+}
+main .CODE_BOX{
+  height: 100%;
+  font-size: 15px;
+  border-color: #FFE08C;
+  white-space: pre-wrap;
+  margin-top: 5px;
+  background-color: transparent;
+  outline: none;
+}
+.card{
+  backdrop-filter: blur(10px);
+  background-color: rgba(0,0,0,.75);;
+  padding: 25px;
+  border-radius: 15px;
+}
+.card__header{
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+}
+.card__dots{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  /* margin-bottom: 20px; */
+}
+.card__dots span{
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+}
+
+.card__header input[type="text"]{
+  font-size: 0.9rem;
+  color: rgba(173, 173, 173, 0.972);
+  outline: none;
+  background-color: transparent;
+  margin-left: 25%;
+  border: none;
+}
+
+.card__dots :nth-child(1){
+  background-color: #FF3B30;
+}
+.card__dots :nth-child(2){
+  background-color: #FFCC00;
+}
+.card__dots :nth-child(3){
+  background-color: #4CD964;
+}
+
+aside{
+  width: 450px;
+}
+
+.selection{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+.wrap{
+  width: 100%;
+}
+.wrap label{
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-left: 2px;
+}
+.wrap select {
+  height: 40px;
+  width: 100%;
+  background-color: #0f0f0f;
+  color: #cdcdcd;
+  /* border: none; */
+  /* outline: none; */
+  border-color: #FFE08C;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-block: 6px;
+}
+
+aside select:focus{
+  outline: none;
+}
+
+aside select::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #afafaf;
+  border-radius: 15px;
+
+}
+aside select::-webkit-scrollbar {
+	width: 6px;
+	background-color: #9f9f9f;
+  border-radius: 15px;
+
+}
+aside select::-webkit-scrollbar-thumb {
+	background-color: #000000;
+  border-radius: 15px;
+}
