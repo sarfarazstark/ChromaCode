@@ -12,21 +12,22 @@
 </head>
 
 <body>
-  <main>
-    <div class="card">
-      <div class="card__header">
-        <div class="card__dots">
-          <span></span>
-          <span></span>
-          <span></span>
+  <div class="code-image">
+    <main class="main-code-block">
+      <div class="card">
+        <div class="card__header">
+          <div class="card__dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <input type="text" placeholder="untitled-1">
         </div>
-        <input type="text" placeholder="untitled-1">
-      </div>
-      <pre class="language-auto"><code  data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" class="CODE_BOX language-javascript" contenteditable>module.exports = leftpad;
+        <pre class="language-auto"><code  data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" class="CODE_BOX language-javascript" contenteditable>module.exports = leftpad;
 
 function leftpad(str, len, ch) {
   str = String(str);
-  var i = -1;
+  const i = -1;
         
   if (!ch && ch !== 0) ch = ' ';
         
@@ -37,70 +38,74 @@ function leftpad(str, len, ch) {
     }
   return str;
 }</code></pre>
-    </div>
-  </main>
-  <aside>
-    <div class="selection">
-      <div class="wrap">
-        <label for="language">Language</label>
-        <select name="language" id="language">
-          <option value="javascript">JavaScript</option>
-          <option value="plaintext">Plain Text</option>
-          <option value="bash">Bash</option>
-          <option value="c">C</option>
-          <option value="cpp">C++</option>
-          <option value="csharp">C#</option>
-          <option value="css">CSS</option>
-          <option value="diff">Diff</option>
-          <option value="go">Go</option>
-          <option value="graphql">GraphQL</option>
-          <option value="java">Java</option>
-          <option value="json">JSON</option>
-          <option value="kotlin">Kotlin</option>
-          <option value="less">Less</option>
-          <option value="lua">Lua</option>
-          <option value="makefile">Makefile</option>
-          <option value="markdown">Markdown</option>
-          <option value="objectivec">Objective-C</option>
-          <option value="php">PHP</option>
-          <option value="python-repl">Python REPL</option>
-          <option value="python">Python</option>
-          <option value="r">R</option>
-          <option value="ruby">Ruby</option>
-          <option value="rust">Rust</option>
-          <option value="scss">SCSS</option>
-          <option value="shell">Shell</option>
-          <option value="sql">SQL</option>
-          <option value="swift">Swift</option>
-          <option value="typescript">TypeScript</option>
-          <option value="wasm">WebAssembly</option>
-          <option value="xml">XML</option>
-          <option value="yaml">YAML</option>
-        </select>
+      </div>
+      <div class="resize-handle right"></div>
+    </main>
+  </div>
+
+  <div class="controlls">
+    <div class="themes">
+      <h5>Themes</h5>
+      <div class="custom-theme">
+        <div class="selected-theme"><span class="theme-color-block"></span> Breeze</div>
+        <div class="options-container"></div>
       </div>
     </div>
-  </aside>
+    <!--background toggle button -->
+    <div class="--background-toggle">
+      <h5>Background</h5>
+      <input type="checkbox" checked id="background">
+      <label for="background" class="--background toggler">
+      </label>
+    </div>
+    <!--background toggle button -->
+    <!-- Dark mode toggle -->
+    <div class="--dark-mode-toggle">
+      <h5>Dark mode</h5>
+      <input type="checkbox" checked id="dark-mode">
+      <label for="dark-mode" class="--dark-mode toggler">
+      </label>
+    </div>
+    <!-- Dark mode toggle -->
+    <!-- Padding selector -->
+    <div class="padding">
+      <h5>Padding</h5>
+      <div class="padding-child">
+      <div class="buttons">
+        <input type="radio" name="pad" id="16">
+        <label for="16">16</label>
+      </div>
+      <div class="buttons">
+        <input type="radio" name="pad" id="32">
+        <label for="32">32</label>
+      </div>
+      <div class="buttons">
+        <input type="radio" name="pad" id="64">
+        <label for="64">64</label>
+      </div>
+      <div class="buttons">
+        <input type="radio" name="pad" id="128">
+        <label for="128">128</label>
+      </div>
+    </div>
+    </div>
+
+    <div class="wrap">
+      <h5>Language</h5>
+      <div class="custom-select">
+        <div class="selected-option">Select a language</div>
+        <div class="options"></div>
+      </div>
+    </div>
+    <div class="export">
+      <button>Download</button>
+    </div>
+  </div>
+
+  <footer>Made by <a href="https://github.com/sarfarazstark">Sarfaraz</a></footer>
   <script src="highlight/highlight.min.js"></script>
 
-  <script>
-    const codeElement = document.querySelector('.CODE_BOX');
-    const languageSelect = document.querySelector('#language');
-
-    codeElement.addEventListener('input', updateCode);
-    languageSelect.addEventListener('change', updateCode);
-
-    // Highlight the initial content of the code element
-    updateCode();
-
-    function updateCode() {
-      // Remove the 'highlighted' attribute
-      delete codeElement.dataset.highlighted;
-      // Update the language class
-      codeElement.className = `CODE_BOX hljs language-${languageSelect.value}`;
-      // Highlight the code
-      hljs.highlightBlock(codeElement);
-    }
-  </script>
+  <script src="index.js"></script>
 </body>
 
 </html>
