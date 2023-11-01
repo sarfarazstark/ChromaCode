@@ -90,6 +90,7 @@ document.querySelectorAll('.theme').forEach(option => {
     main.style.background = `linear-gradient(140deg, ${theme[option.textContent.toLowerCase()]})`;
     storeBackroundColor = `linear-gradient(140deg, ${theme[option.textContent.toLowerCase()]})`;
     optionsThemeContainer.style.display = 'none';
+    download();
   });
 });
 
@@ -114,12 +115,14 @@ select.querySelectorAll('.option').forEach(option => {
     selectedOption.textContent = option.textContent;
     optionsContainer.style.display = 'none';
     updateCode(option.textContent.toLowerCase() === 'plain text' ? 'txt' : option.textContent.toLowerCase());
+    download();
   });
 });
 
 // Event listener to toggle language options
 selectedOption.addEventListener('click', () => {
   optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
+  download();
 });
 
 // Highlight the initial content of the code element
@@ -133,10 +136,10 @@ function updateCode(language) {
     codeElement.classList.add(`language-${language}`);
     hljs.highlightElement(codeElement);
   }
+  download();
 }
 
 // Event listeners for resizing
-const resizeHandle = document.querySelector('.resize-handle');
 
 let startX;
 let startWidth;
@@ -144,6 +147,7 @@ let startWidth;
 const resize = (e) => {
   const width = startWidth + (e.pageX - startX);
   main.style.width = `${width}px`;
+  download();
 };
 
 const stopResize = () => {
@@ -156,6 +160,7 @@ resizeHandle.addEventListener('mousedown', e => {
   startWidth = main.offsetWidth;
   window.addEventListener('mousemove', resize);
   window.addEventListener('mouseup', stopResize);
+  download();
 });
 
 // Event listener for background transparency
@@ -164,27 +169,36 @@ const backgroundCheckbox = document.querySelector('.--background');
 const darkMode = document.querySelector('.--dark-mode');
 const card = document.querySelector('.card');
 
-// Add event listener to the checkbox
+// Add event listener to the background transparency checkbox
 let i = 0;
 backgroundCheckbox.addEventListener('click', () => {
   if(i === 0) {
     main.style.background = 'transparent';
+    download();
     i = 1;
     console.log(i);
   } else {
     main.style.background = storeBackroundColor;
+    download();
     i = 0;
     console.log(i, storeBackroundColor);
   }
 });
 
+// Add event listener to the dark mode checkbox
 let d = 0;
 darkMode.addEventListener('click', () => {
   if(d === 0) {
-    card.style.background = 'white';
+    card.style.background = '#ffffffc9';
+    card.querySelector('code').style.color = 'rgb(55 89 57)';
+    card.querySelector('input').style.color = 'rgba(58, 58, 58, 0.972)';
+    download();
     d = 1;
   } else {
     card.style.background = 'rgba(0, 0, 0, .75)';
+    card.querySelector('code').style.color = '#6ea971';
+    card.querySelector('input').style.color = 'rgba(173, 173, 173, 0.972)';
+    download();
     d = 0;
   }
 })
@@ -194,6 +208,7 @@ const padding = document.querySelectorAll('.padding label');
 padding.forEach(pad => {
   pad.addEventListener('click', () => {
     console.log(pad.textContent);
-    main.style.padding = `${pad.textContent}px`;
+    main.style.padding = `${pad.textContent}px`;s
+    download();
   });
 })

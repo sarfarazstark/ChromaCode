@@ -3,7 +3,7 @@
 .hljs {
   display: block;
   background: #282c34;
-  color: #89c389;
+  color: #6ea971;
   padding: 1em;
   border-radius: 4px;
   font-size: 14px;
@@ -23,7 +23,7 @@
 .hljs-string,
 .hljs-title,
 .hljs-tag {
-  color: #98c379;
+  color: #5f794c;
 }
 
 /* Comments and Meta Information */
@@ -59,11 +59,11 @@
 /* Numbers and Additional Meta Information */
 .hljs-number,
 .hljs-meta {
-  color: #1e96ff;
+  color: #0030f5;
   /* Blue for numbers */
 }
 .hljs-property {
-  color: #1effad;
+  color: #00b875;
   /* Blue for numbers */
 }
 
@@ -74,7 +74,7 @@
 
 /* Attributes */
 .hljs-attribute, .hljs-params {
-  color: #FF6B6B;
+  color: #c83c47;
   /* Reddish for properties hljs-params*/
 }
 
@@ -141,7 +141,7 @@
 
 /* Additional Code Elements */
 .hljs-meta-keyword {
-  color: #C678DD;
+  color: #f2404d;
 }
 
 .hljs-attribute,
@@ -160,7 +160,7 @@
 .hljs-link,
 .hljs-template-variable,
 .hljs-type {
-  color: #E5C07B;
+  color: #cc8603;
 }
 
 .hljs-comment,
@@ -198,7 +198,7 @@
 .hljs-section,
 .hljs-deletion,
 .hljs-title {
-  color: #C678DD;
+  color: #8731a1;
 }
 
 .hljs-attribute .hljs-string,

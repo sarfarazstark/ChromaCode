@@ -41,9 +41,13 @@ body {
 .card {
   backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, .75);
-  ;
+  font-weight: 600;
   padding: 25px;
   border-radius: 15px;
+  width: 100%;
+}
+.card pre code{
+  background: transparent !important;
 }
 
 .main-code-block {
@@ -91,6 +95,7 @@ body {
 }
 
 .card__header input[type="text"] {
+  font-family: Noto sans, monospace;
   font-size: 0.9rem;
   color: rgba(173, 173, 173, 0.972);
   outline: none;
@@ -170,7 +175,6 @@ body {
   left: 0;
   border-radius: 5px;
   padding: 10px;
-  gap: 10px;
   width: 100%;
   background: #202124;
   max-height: 400px;
@@ -186,7 +190,7 @@ body {
   background: #f0f0f000;
 }
 
-.options::-webkit-scrollbar, .options-container::-webkit-scrollbar{
+.options::-webkit-scrollbar, .options-container::-webkit-scrollbar, .main-code-block::-webkit-scrollbar{
   display: none;
 }
 .list-item:hover{
@@ -277,41 +281,23 @@ input[type="checkbox"]:checked + .toggler{
 }
 .export{
   display: flex;
+  flex-direction: column;
   gap: 5px;
 }
-.export button{
+.export div{
+  margin-top: 3px;
+}
+.export a{
+  text-decoration: none;
   width: auto;
-  height: 35px;
   border-radius: 5px;
   border: none;
   background-color: #cd982f8a;
-  padding: 5px 20px;
+  padding: 2px 5px;
   color: #ffbb02;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s linear;
-  position: relative;
-}
-.export button:nth-child(2){
-  font-size: 18px;
-  padding: 5px 10px;
-}
-.export button:nth-child(2) img{
-  rotate: -90deg;
-  width: 12px;
-}
-.saving-section{
-  position: absolute;
-  display: none;
-  flex-direction: column;
-  background-color: #202124;
-  bottom: 70%;
-  right: -2%;
-  border-radius: 10px;
-  border: 1px solid #414141;
-  gap: 10px;
-  padding: 20px;
-  align-items: center;
 }
 
 .controlls {
@@ -325,7 +311,6 @@ input[type="checkbox"]:checked + .toggler{
   border-radius: 10px;
   background-color: #202124;
   justify-content: space-around;
-  align-items: center;
 }
 
 footer{
@@ -335,4 +320,11 @@ footer{
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  letter-spacing: 5px;
+  gap: 8px ;
+}
+
+footer a{
+  color: #cd982f;
+  text-decoration: none;
 }

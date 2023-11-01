@@ -8,6 +8,7 @@
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="highlight/styles/default.css">
   <link rel="stylesheet" href="highlight/styles/one-dark-pro.css">
 </head>
 
@@ -23,7 +24,7 @@
           </div>
           <input type="text" placeholder="untitled-1">
         </div>
-        <pre class="language-auto"><code  data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" class="CODE_BOX language-javascript" contenteditable>module.exports = leftpad;
+        <pre class="language-auto"><code style="background-color: transparent;" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" class="CODE_BOX language-javascript" contenteditable>module.exports = leftpad;
 
 function leftpad(str, len, ch) {
   str = String(str);
@@ -71,23 +72,23 @@ function leftpad(str, len, ch) {
     <div class="padding">
       <h5>Padding</h5>
       <div class="padding-child">
-      <div class="buttons">
-        <input type="radio" name="pad" id="16">
-        <label for="16">16</label>
+        <div class="buttons">
+          <input type="radio" name="pad" id="16">
+          <label for="16">16</label>
+        </div>
+        <div class="buttons">
+          <input type="radio" name="pad" id="32">
+          <label for="32">32</label>
+        </div>
+        <div class="buttons">
+          <input type="radio" name="pad" id="64">
+          <label for="64">64</label>
+        </div>
+        <div class="buttons">
+          <input type="radio" name="pad" id="128">
+          <label for="128">128</label>
+        </div>
       </div>
-      <div class="buttons">
-        <input type="radio" name="pad" id="32">
-        <label for="32">32</label>
-      </div>
-      <div class="buttons">
-        <input type="radio" name="pad" id="64">
-        <label for="64">64</label>
-      </div>
-      <div class="buttons">
-        <input type="radio" name="pad" id="128">
-        <label for="128">128</label>
-      </div>
-    </div>
     </div>
 
     <div class="wrap">
@@ -98,14 +99,81 @@ function leftpad(str, len, ch) {
       </div>
     </div>
     <div class="export">
-      <button>Download</button>
+      <h5>Download</h5>
+      <div>
+        <a href="#PNG" download class="btn">PNG</a>
+        <a href="#JPEG" download class="btn">JPEG</a>
+        <a href="#SVG" download class="btn">SVG</a>
+      </div>
     </div>
   </div>
 
-  <footer>Made by <a href="https://github.com/sarfarazstark">Sarfaraz</a></footer>
+  <footer>Made by <a href="https://github.com/sarfarazstark" target="_blank">Sarfaraz</a></footer>
+  <script src="dom-to-image-more.min.js"></script>
   <script src="highlight/highlight.min.js"></script>
+  <script>
+    // Adding functionality for downloading the card as an image and svg
+    const node = document.querySelector('.main-code-block');
+    const href = document.querySelectorAll('.btn');
+    const code = document.querySelector('code');
+    const resizeHandle = document.querySelector('.resize-handle');
 
-  <script src="index.js"></script>
+    const download = function (event) {
+      // Prevent the default action of the click event
+      // event.preventDefault();
+
+      const originalDisplay = resizeHandle.style.display;
+      resizeHandle.style.display = 'none';
+      // Remove the contenteditable attribute
+      code.removeAttribute('contenteditable');
+      node.querySelector('input').style.outline = 'none';
+      node.querySelector('input').setAttribute('disabled', 'disabled');
+      node.querySelector('code').style.overflow = 'hidden';
+
+      domtoimage.toSvg(node)
+        .then(function (dataUrl) {
+          // The dataUrl variable now contains the SVG data in URL form
+          href[2].href = dataUrl; // Keep the SVG data in href[2]
+
+          // Create a new Image object
+          const img = new Image();
+          img.src = dataUrl;
+          img.style.width = node.offsetWidth + 'px'; // Use the original width of the image
+          img.style.height = node.offsetHeight + 'px'; // Use the original height of the image
+
+          img.onload = function () {
+            // Create a new Canvas element
+            const canvas = document.createElement('canvas');
+            canvas.width = node.offsetWidth; // Use the original width of the image
+            canvas.height = node.offsetHeight; // Use the original height of the image
+
+            // Draw the image onto the Canvas
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, node.offsetWidth, node.offsetHeight);
+
+            // Convert the Canvas to PNG
+            const pngData = canvas.toDataURL('image/png');
+            href[0].href = pngData;
+            // Convert the Canvas to JPEG
+            const jpegData = canvas.toDataURL('image/jpeg');
+            href[1].href = jpegData;
+            // Restore the visibility of the resize handle
+            resizeHandle.style.display = originalDisplay;
+
+            // Add back the contenteditable attribute
+            code.setAttribute('contenteditable', 'true');
+            node.querySelector('input').removeAttribute('disabled');
+            node.querySelector('code').style.overflow = 'visible';
+          };
+        })
+        .catch(function (error) {
+          console.error('Error converting DOM to SVG:', error);
+        });
+    }
+    download();
+    href.forEach(button => button.addEventListener('click', download));
+  </script>
+    <script src="index.js"></script>
 </body>
 
 </html>
