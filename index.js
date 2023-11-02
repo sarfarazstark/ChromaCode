@@ -126,7 +126,8 @@ selectedOption.addEventListener('click', () => {
 });
 
 // Highlight the initial content of the code element
-updateCode('javascript');
+let currentLanguage = 'javascript';
+updateCode(currentLanguage);
 
 // Function to update code highlighting
 function updateCode(language) {
@@ -134,10 +135,24 @@ function updateCode(language) {
   codeElement.className = 'CODE_BOX hljs';
   if (language !== '') {
     codeElement.classList.add(`language-${language}`);
+    currentLanguage = language;
     hljs.highlightElement(codeElement);
   }
   download();
 }
+
+// Add the event listener for the input event
+codeElement.addEventListener('input', () => {
+  updateCode(currentLanguage);
+});
+// Add the event listener for the paste event
+codeElement.addEventListener('paste', (event) => {
+  // Wait for the next event loop iteration to ensure the pasted text is available
+  console.log(event);
+  setTimeout(() => {
+    updateCode(currentLanguage);
+  }, 0);
+});
 
 // Event listeners for resizing
 

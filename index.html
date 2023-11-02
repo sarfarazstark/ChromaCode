@@ -119,12 +119,12 @@ function leftpad(str, len, ch) {
     const href = document.querySelectorAll('.btn');
     const code = document.querySelector('code');
     const resizeHandle = document.querySelector('.resize-handle');
+    const originalDisplay = resizeHandle.style.display;
 
     const download = function (event) {
       // Prevent the default action of the click event
       // event.preventDefault();
 
-      const originalDisplay = resizeHandle.style.display;
       resizeHandle.style.display = 'none';
       // Remove the contenteditable attribute
       code.removeAttribute('contenteditable');
