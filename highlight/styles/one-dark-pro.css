@@ -23,7 +23,7 @@
 .hljs-name .hljs-string,
 .hljs-deletion .hljs-string,
 .hljs-meta-string {
-  color: #789960;
+  color: #ccc52c;
 }
 
 .hljs-keyword,
@@ -44,7 +44,8 @@
 .hljs-selector-class>.hljs-operator,
 .hljs-selector-id>.hljs-operator,
 .hljs-selector-pseudo>.hljs-operator {
-  color: #C678DD;
+  color: #ea3a4a;
+  font-weight: 700;
 }
 
 .hljs-symbol {
@@ -125,11 +126,11 @@
 }
 
 .hljs-tag .hljs-name, .hljs-tag .hljs-attr {
-  color: #ae4949;
+  color: #d94646;
 }
 
 .hljs-meta-keyword {
-  color: #f2404d;
+  color: #ea3a4a;
 }
 
 .hljs-selector-attr,
@@ -146,7 +147,7 @@
 .hljs-title,
 .hljs-comment .hljs-keyword,
 .hljs-link .hljs-keyword {
-  color: #8731a1;
+  color: #31a143;
 }
 
 .hljs-comment .hljs-keyword,

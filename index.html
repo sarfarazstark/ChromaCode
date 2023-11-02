@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <header>✨ ChromaCode</header> 
   <div class="code-image">
     <main class="main-code-block">
       <div class="card">
@@ -24,20 +25,10 @@
           </div>
           <div contenteditable class="title">Untitled-1</div>
         </div>
-        <pre class="language-auto"><code style="background-color: transparent;" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" class="CODE_BOX language-javascript" contenteditable>module.exports = leftpad;
+        <pre class="language-auto"><code style="font-weight:700; transparent;" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" class="CODE_BOX language-javascript" contenteditable="true">import { Detail } from "@chromacode/api";
 
-function leftpad(str, len, ch) {
-  str = String(str);
-  const i = -1;
-        
-  if (!ch && ch !== 0) ch = ' ';
-        
-    len = len - str.length;
-        
-    while (i++ < len) {
-    str = ch + str;
-    }
-  return str;
+export default function Command() {
+   return &#60;Detail markdown="Hello World" &#47;&#62;;
 }</code></pre>
       </div>
       <div class="resize-handle right"></div>
@@ -81,7 +72,7 @@ function leftpad(str, len, ch) {
           <label for="32">32</label>
         </div>
         <div class="buttons">
-          <input type="radio" name="pad" id="64">
+          <input type="radio" che name="pad" id="64">
           <label for="64">64</label>
         </div>
         <div class="buttons">
@@ -131,7 +122,7 @@ function leftpad(str, len, ch) {
       node.querySelector('.title').style.outline = 'none';
       node.querySelector('code').style.overflow = 'hidden';
 
-      domtoimage.toSvg(node, {height: node.scrollHeight, width: node.scrollWidth}) 
+      domtoimage.toSvg(node, { height: node.scrollHeight, width: node.scrollWidth })
         .then(function (dataUrl) {
           // The dataUrl variable now contains the SVG data in URL form
           href[2].href = dataUrl; // Keep the SVG data in href[2]
@@ -180,6 +171,14 @@ function leftpad(str, len, ch) {
       }
     });
 
+    const debounce = (func, wait) => {
+      let timeout;
+      return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(...args), wait);
+      };
+    };
+    const debouncedDownload = debounce(download, 250);
     // When the user moves the focus away from the div, check if they entered anything
     titleDiv.addEventListener('blur', () => {
       if (titleDiv.textContent === '') {
@@ -187,10 +186,10 @@ function leftpad(str, len, ch) {
         titleDiv.textContent = 'Untitled-1';
       }
       // Call the download function
-      download();
+      debouncedDownload();
     });
-    download();
-    href.forEach(button => button.addEventListener('click', download));
+    debouncedDownload();
+    href.forEach(button => button.addEventListener('click', debouncedDownload));
   </script>
   <script src="index.js"></script>
 </body>

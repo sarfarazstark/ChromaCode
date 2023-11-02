@@ -99,7 +99,7 @@ document.querySelectorAll('.theme').forEach(option => {
     main.style.background = `linear-gradient(140deg, ${theme[option.textContent.toLowerCase()]})`;
     storeBackroundColor = `linear-gradient(140deg, ${theme[option.textContent.toLowerCase()]})`;
     optionsThemeContainer.style.display = 'none';
-    download();
+    debouncedDownload();
   });
 });
 
@@ -121,7 +121,7 @@ programmingLanguages.forEach(createLanguageOption);
 // Event listener to toggle language options
 selectedOption.addEventListener('click', () => {
   optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
-  download();
+  debouncedDownload();
 });
 
 listHide(selectedOption, optionsContainer);
@@ -131,7 +131,7 @@ select.querySelectorAll('.option').forEach(option => {
     selectedOption.textContent = option.textContent;
     optionsContainer.style.display = 'none';
     updateCode(option.textContent.toLowerCase() === 'plain text' ? 'txt' : option.textContent.toLowerCase());
-    download();
+    debouncedDownload();
   });
 });
 
@@ -148,7 +148,7 @@ function updateCode(language) {
     currentLanguage = language;
     hljs.highlightElement(codeElement);
   }
-  download();
+  debouncedDownload();
 }
 
 // Add the event listener for the input event
@@ -169,14 +169,18 @@ let startX;
 let startWidth;
 
 const resize = (e) => {
-  const width = startWidth + (e.pageX - startX);
+  // Use e.touches[0].pageX for touch events and e.pageX for mouse events
+  const pageX = e.touches ? e.touches[0].pageX : e.pageX;
+  const width = startWidth + (pageX - startX);
   main.style.width = `${width}px`;
-  download();
+  debouncedDownload();
 };
 
 const stopResize = () => {
   window.removeEventListener('mousemove', resize);
   window.removeEventListener('mouseup', stopResize);
+  window.removeEventListener('touchmove', resize);
+  window.removeEventListener('touchend', stopResize);
 };
 
 resizeHandle.addEventListener('mousedown', e => {
@@ -184,7 +188,16 @@ resizeHandle.addEventListener('mousedown', e => {
   startWidth = main.offsetWidth;
   window.addEventListener('mousemove', resize);
   window.addEventListener('mouseup', stopResize);
-  download();
+  debouncedDownload();
+});
+
+// Add touch event listeners
+resizeHandle.addEventListener('touchstart', e => {
+  startX = e.touches[0].pageX;
+  startWidth = main.offsetWidth;
+  window.addEventListener('touchmove', resize);
+  window.addEventListener('touchend', stopResize);
+  debouncedDownload();
 });
 
 // Event listener for background transparency
@@ -198,11 +211,11 @@ let i = 0;
 backgroundCheckbox.addEventListener('click', () => {
   if(i === 0) {
     main.style.background = 'transparent';
-    download();
+    debouncedDownload();
     i = 1;
   } else {
     main.style.background = storeBackroundColor;
-    download();
+    debouncedDownload();
     i = 0;
   }
 });
@@ -215,13 +228,13 @@ darkMode.addEventListener('click', () => {
     card.style.background = '#ffffffc9';
     card.querySelector('code').style.color = 'rgb(55 89 57)';
     card.querySelector('.title').style.color = 'rgba(58, 58, 58, 0.972)';
-    download();
+    debouncedDownload();
     d = 1;
   } else {
     card.style.background = 'rgba(0, 0, 0, .75)';
     card.querySelector('code').style.color = '#6ea971';
     card.querySelector('.title').style.color = 'rgba(173, 173, 173, 0.972)';
-    download();
+    debouncedDownload();
     d = 0;
   }
 })
@@ -230,7 +243,7 @@ darkMode.addEventListener('click', () => {
 const padding = document.querySelectorAll('.padding label');
 padding.forEach(pad => {
   pad.addEventListener('click', () => {
-    main.style.padding = `${pad.textContent}px`;s
-    download();
+    main.style.padding = `${pad.textContent}px`;
+    debouncedDownload();
   });
-})
+});

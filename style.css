@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Noto+Sans:wght@300;500;700&display=swap');
 
 * {
   margin: 0;
@@ -10,12 +10,17 @@ body {
   background-color: #202124;
   color: #cdcdcd;
   display: grid;
+  height: 100vh;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 200px;
+  grid-template-rows: 200px auto 200px;
   gap: 1rem;
   font-family: Fira code, monospace;
-  padding-top: 5rem;
+  /* padding-top: 5rem; */
   justify-items: center;
+}
+header{
+  display: flex;
+  align-items: center;
 }
 
 .main-code-block {
@@ -23,7 +28,7 @@ body {
   max-width: 900px;
   width: 550px;
   height: 100%;
-  padding: 32px;
+  padding: 64px;
   background: linear-gradient(300deg, #CD2F9A, #6D3CE6)
 }
 
@@ -36,6 +41,7 @@ body {
   background-color: transparent;
   outline: none;
   padding: 0;
+  font-family: Noto sans, monospace;
 }
 
 .card {
@@ -45,9 +51,6 @@ body {
   padding: 25px;
   border-radius: 15px;
   width: 100%;
-}
-.card pre code{
-  background: transparent !important;
 }
 
 .main-code-block {
@@ -68,7 +71,6 @@ body {
 
 .resize-handle.right {
   right: -8px;
-  z-index: 2;
 }
 
 .card__header {
@@ -128,7 +130,7 @@ body {
   gap: 10px;
 }
 
-.controlls h5 {
+.controls h5 {
   font-size: 0.77rem;
   font-weight: 500;
 }
@@ -252,7 +254,7 @@ input[type="checkbox"]{
 }
 
 input[type="checkbox"]:checked + .toggler::after{
-  translate: 1.2rem 0;
+  translate: 1.1rem 0;
   background-color: #cdcdcd;
 }
 input[type="checkbox"]:checked + .toggler{
@@ -316,7 +318,6 @@ input[type="checkbox"]:checked + .toggler{
 }
 
 footer{
-  padding-bottom: 3rem;
   height: 200px;
   width: 100%;
   display: flex;
@@ -324,6 +325,7 @@ footer{
   justify-content: center;
   letter-spacing: 2px;
   gap: 8px ;
+  padding-bottom: 40px;
 }
 
 footer a{
@@ -340,4 +342,57 @@ footer a img{
 footer a img:hover{
   translate: 0 -0.5rem;
   width: 1.9rem;
+}
+
+/* generate css for mobile screen */
+@media only screen and (max-width: 760px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 200px;
+    gap: 1rem;
+    font-family: Fira code, monospace;
+    padding-top: 2rem;
+    justify-items: center;
+    height: 100vh;
+    align-items: center;
+  }
+
+  .main-code-block {
+    min-width: 550px;
+    max-width: 900px;
+    height: 100%;
+    padding: 64px;
+    background: linear-gradient(300deg, #CD2F9A, #6D3CE6);
+  }
+
+  .code-image {
+    width: 100vw;
+    overflow: scroll;
+    display: flex;
+    justify-content: center;
+  }
+  .code-image::-webkit-scrollbar{
+    display: none;
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    bottom: 50px;
+    width:fit-content;
+    height: auto;
+    gap: 15px;
+  }
+  .wrap{
+    /* above grid in short way*/
+    grid-area: 1 / 2;
+  }
+  .resize-handle.right {
+    width: 20px;
+    height: 20px;
+  }
+  /* footer{
+    height: 250px;
+  } */
 }
