@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="highlight/styles/default.css">
   <link rel="stylesheet" href="highlight/styles/one-dark-pro.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
             <span></span>
             <span></span>
           </div>
-          <input type="text" placeholder="untitled-1">
+          <div contenteditable class="title">Untitled-1</div>
         </div>
         <pre class="language-auto"><code style="background-color: transparent;" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" class="CODE_BOX language-javascript" contenteditable>module.exports = leftpad;
 
@@ -44,7 +45,7 @@ function leftpad(str, len, ch) {
     </main>
   </div>
 
-  <div class="controlls">
+  <div class="controls">
     <div class="themes">
       <h5>Themes</h5>
       <div class="custom-theme">
@@ -108,7 +109,8 @@ function leftpad(str, len, ch) {
     </div>
   </div>
 
-  <footer>Made by <a href="https://github.com/sarfarazstark" target="_blank">Sarfaraz</a></footer>
+  <footer>Made by <a href="https://github.com/sarfarazstark" target="_blank">Sarfaraz</a> - <a
+      href="https://github.com/sarfarazstark/ChromaCode"><i class="fab fa-github"></i></a></footer>
   <script src="dom-to-image-more.min.js"></script>
   <script src="highlight/highlight.min.js"></script>
   <script>
@@ -126,8 +128,8 @@ function leftpad(str, len, ch) {
       resizeHandle.style.display = 'none';
       // Remove the contenteditable attribute
       code.removeAttribute('contenteditable');
-      node.querySelector('input').style.outline = 'none';
-      node.querySelector('input').setAttribute('disabled', 'disabled');
+      node.querySelector('.title').removeAttribute('contenteditable');
+      node.querySelector('.title').style.outline = 'none';
       node.querySelector('code').style.overflow = 'hidden';
 
       domtoimage.toSvg(node)
@@ -162,7 +164,7 @@ function leftpad(str, len, ch) {
 
             // Add back the contenteditable attribute
             code.setAttribute('contenteditable', 'true');
-            node.querySelector('input').removeAttribute('disabled');
+            node.querySelector('.title').setAttribute('contenteditable', 'true');
             node.querySelector('code').style.overflow = 'visible';
           };
         })
@@ -170,10 +172,28 @@ function leftpad(str, len, ch) {
           console.error('Error converting DOM to SVG:', error);
         });
     }
+    const titleDiv = document.querySelector('.title');
+
+    // When the user clicks on the div, clear the default text
+    titleDiv.addEventListener('focus', () => {
+      if (titleDiv.textContent === 'Untitled-1') {
+        titleDiv.textContent = '';
+      }
+    });
+
+    // When the user moves the focus away from the div, check if they entered anything
+    titleDiv.addEventListener('blur', () => {
+      if (titleDiv.textContent === '') {
+        // If they didn't enter anything, set the value back to the default text
+        titleDiv.textContent = 'Untitled-1';
+      }
+      // Call the download function
+      download();
+    });
     download();
     href.forEach(button => button.addEventListener('click', download));
   </script>
-    <script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>

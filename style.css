@@ -73,8 +73,8 @@ body {
 
 .card__header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  flex-direction: row;
+  grid-template-columns: 60px 1fr 60px;
+  align-content: center;
   height: 30px;
 }
 
@@ -94,14 +94,16 @@ body {
   backdrop-filter: blur(10px);
 }
 
-.card__header input[type="text"] {
+.card__header .title {
   font-family: Noto sans, monospace;
+  font-weight: 300;
   font-size: 0.9rem;
-  color: rgba(173, 173, 173, 0.972);
+  color: rgba(130, 130, 130, 0.972);
   outline: none;
   background-color: transparent;
-  margin-left: 25%;
   border: none;
+  width: 100%;
+  text-align: center;
 }
 
 .card__dots :nth-child(1) {
@@ -300,7 +302,7 @@ input[type="checkbox"]:checked + .toggler{
   transition: all 0.3s linear;
 }
 
-.controlls {
+.controls {
   display: flex;
   position: fixed;
   padding: 15px;
@@ -320,11 +322,19 @@ footer{
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
   gap: 8px ;
 }
 
 footer a{
   color: #cd982f;
   text-decoration: none;
+}
+.fa-github{
+  width: 1.7rem;
+  transition: all 0.3s ease-out;
+}
+footer a .fa-github:hover{
+  translate: 0 -0.5rem;
+  width: 1.5rem;
 }
