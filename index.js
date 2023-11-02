@@ -55,6 +55,14 @@ const options = document.querySelector('.custom-theme');
 const selectedTheme = document.querySelector('.selected-theme');
 const main = document.querySelector('main');
 
+const listHide = function(listBtn, listName){
+    document.addEventListener('click', function(event){
+        if(!listBtn.contains(event.target)){
+          listName.style.display = 'none';
+        }
+    });
+}
+
 let storeBackroundColor = `linear-gradient(140deg, ${theme.breeze})`;
 
 // Function to create theme options
@@ -75,9 +83,10 @@ for (const [key, value] of Object.entries(theme)) {
 
 // Event listener to toggle theme options
 selectedTheme.addEventListener('click', () => {
-  console.log('hello');
   optionsThemeContainer.style.display = optionsThemeContainer.style.display === 'flex' ? 'none' : 'flex';
 });
+
+listHide(selectedTheme, optionsThemeContainer);
 
 // Event listener for theme options
 document.querySelectorAll('.theme').forEach(option => {
@@ -109,6 +118,13 @@ selectedOption.textContent = 'JavaScript';
 // Populate language options
 programmingLanguages.forEach(createLanguageOption);
 
+// Event listener to toggle language options
+selectedOption.addEventListener('click', () => {
+  optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
+  download();
+});
+
+listHide(selectedOption, optionsContainer);
 // Event listener for language options
 select.querySelectorAll('.option').forEach(option => {
   option.addEventListener('click', () => {
@@ -117,12 +133,6 @@ select.querySelectorAll('.option').forEach(option => {
     updateCode(option.textContent.toLowerCase() === 'plain text' ? 'txt' : option.textContent.toLowerCase());
     download();
   });
-});
-
-// Event listener to toggle language options
-selectedOption.addEventListener('click', () => {
-  optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
-  download();
 });
 
 // Highlight the initial content of the code element
@@ -148,7 +158,6 @@ codeElement.addEventListener('input', () => {
 // Add the event listener for the paste event
 codeElement.addEventListener('paste', (event) => {
   // Wait for the next event loop iteration to ensure the pasted text is available
-  console.log(event);
   setTimeout(() => {
     updateCode(currentLanguage);
   }, 0);
@@ -191,12 +200,10 @@ backgroundCheckbox.addEventListener('click', () => {
     main.style.background = 'transparent';
     download();
     i = 1;
-    console.log(i);
   } else {
     main.style.background = storeBackroundColor;
     download();
     i = 0;
-    console.log(i, storeBackroundColor);
   }
 });
 
@@ -222,7 +229,6 @@ darkMode.addEventListener('click', () => {
 const padding = document.querySelectorAll('.padding label');
 padding.forEach(pad => {
   pad.addEventListener('click', () => {
-    console.log(pad.textContent);
     main.style.padding = `${pad.textContent}px`;s
     download();
   });

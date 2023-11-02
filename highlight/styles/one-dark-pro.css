@@ -1,5 +1,3 @@
-/* Updated One Dark Pro Theme for Highlight.js */
-
 .hljs {
   display: block;
   background: #282c34;
@@ -10,159 +8,6 @@
   line-height: 1.6;
 }
 
-/* Keywords and Control Flow */
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-section,
-.hljs-link {
-  color: #C678DD;
-}
-
-/* Strings */
-.hljs-string,
-.hljs-title,
-.hljs-tag {
-  color: #789960;
-}
-
-/* Comments and Meta Information */
-.hljs-subst,
-.hljs-code,
-.hljs-comment,
-.hljs-meta {
-  color: #5C6370;
-}
-
-/* Regular Expressions, Symbols, and Variables */
-.hljs-regexp,
-.hljs-symbol {
-  color: #E5C07B;
-}
-
-/* Functions and Methods */
-.hljs-name {
-  color: #87CEEB;
-  /* Sky Blue for functions */
-  font-weight: bold;
-  /* Bold functions */
-}
-
-/* Built-in Functions and Bullet Points */
-.hljs-built_in,
-.hljs-bullet,
-.hljs-code,
-.hljs-addition {
-  color: #98c379;
-}
-
-/* Numbers and Additional Meta Information */
-.hljs-number,
-.hljs-meta {
-  color: #0030f5;
-  /* Blue for numbers */
-}
-.hljs-property {
-  color: #00b875;
-  /* Blue for numbers */
-}
-
-/* Meta Strings */
-.hljs-meta-string {
-  color: #98c379;
-}
-
-/* Attributes */
-.hljs-attribute, .hljs-params {
-  color: #c83c47;
-  /* Reddish for properties hljs-params*/
-}
-
-/* Emphasis (Italic) */
-.hljs-emphasis {
-  font-style: italic;
-}
-
-/* Strong (Bold) */
-.hljs-strong {
-  font-weight: bold;
-}
-
-/* Lists and Tags */
-.hljs-list,
-.hljs-tag {
-  list-style: none;
-  text-indent: 0;
-}
-
-/* Titles and Sections */
-.hljs-title,
-.hljs-section {
-  font-size: 1.2em;
-}
-
-/* Additional Styles */
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-section {
-  font-weight: bold;
-}
-
-.hljs-function,
-.hljs-attr,
-.hljs-selector-pseudo,
-.hljs-template-tag {
-  color: #87CEEB;
-  /* Sky Blue for object methods */
-}
-
-.hljs-deletion,
-.hljs-variable.language {
-  color: #e06c75;
-}
-
-.hljs-title {
-  color: #E06C75;
-}
-
-.hljs-link,
-.hljs-emphasis {
-  color: #98c379;
-}
-
-.hljs-bullet {
-  color: #56B6C2;
-}
-
-.hljs-symbol {
-  color: #FFFF00;
-  /* Yellow for object names */
-}
-
-/* Additional Code Elements */
-.hljs-meta-keyword {
-  color: #f2404d;
-}
-
-.hljs-attribute,
-.hljs-variable-template {
-  color: #E06C75;
-}
-
-.hljs-deletion,
-.hljs-keyword {
-  color: #E06C75;
-}
-
-.hljs-subst,
-.hljs-variable,
-.hljs-attribute,
-.hljs-link,
-.hljs-template-variable,
-.hljs-type {
-  color: #cc8603;
-}
-
 .hljs-comment,
 .hljs-quote,
 .hljs-doctag {
@@ -170,35 +15,66 @@
   font-style: italic;
 }
 
-/* Additional Code Elements */
-.hljs-literal {
-  color: #D19A66;
+.hljs-string,
+.hljs-title,
+.hljs-tag,
+.hljs-attribute .hljs-string,
+.hljs-meta .hljs-string,
+.hljs-name .hljs-string,
+.hljs-deletion .hljs-string,
+.hljs-meta-string {
+  color: #789960;
 }
 
-.hljs-selector-attr {
-  color: #E06C75;
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link,
+.hljs-function,
+.hljs-attr,
+.hljs-selector-pseudo,
+.hljs-template-tag,
+.hljs-deletion,
+.hljs-variable.language,
+.hljs-title,
+.hljs-link,
+.hljs-emphasis,
+.hljs-addition,
+.hljs-selector-class>.hljs-operator,
+.hljs-selector-id>.hljs-operator,
+.hljs-selector-pseudo>.hljs-operator {
+  color: #C678DD;
 }
 
-.hljs-selector-id {
-  color: #D19A66;
+.hljs-symbol {
+  color: #FFFF00;
 }
 
-.hljs-selector-class {
-  color: #D19A66;
-}
-
-.hljs-addition {
+.hljs-regexp .hljs-string {
   color: #98c379;
 }
 
-/* Colorful Styling for Other Elements */
-.hljs-template-punctuation,
-.hljs-tag .hljs-attr,
-.hljs-selector-pseudo .hljs-function,
-.hljs-section,
-.hljs-deletion,
-.hljs-title {
-  color: #8731a1;
+.hljs-bullet {
+  color: #56B6C2;
+}
+
+.hljs-property {
+  color: #00b875;
+}
+
+.hljs-number,
+.hljs-meta {
+  color: #0030f5;
+}
+
+.hljs-attribute,
+.hljs-params {
+  color: #c83c47;
+}
+
+.hljs-meta-string {
+  color: #98c379;
 }
 
 .hljs-attribute .hljs-string,
@@ -208,32 +84,76 @@
   color: #98c379;
 }
 
+.hljs-function,
+.hljs-attr,
+.hljs-selector-pseudo,
+.hljs-template-tag {
+  color: #87CEEB;
+  font-weight: bold;
+}
+
+.hljs-variable-template,
+.hljs-type,
+.hljs-subst,
+.hljs-variable,
+.hljs-link,
+.hljs-template-variable {
+  color: #cc8603;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-list,
+.hljs-tag,
+.hljs-attribute .hljs-string,
+.hljs-meta .hljs-string,
+.hljs-name .hljs-string,
+.hljs-deletion .hljs-string {
+  list-style: none;
+  text-indent: 0;
+}
+
+.hljs-title,
+.hljs-section {
+  font-size: 1.2em;
+}
+
+.hljs-meta-keyword {
+  color: #f2404d;
+}
+
+.hljs-selector-attr,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #D19A66;
+}
+
+.hljs-template-punctuation,
+.hljs-tag .hljs-attr,
+.hljs-selector-pseudo .hljs-function,
+.hljs-section,
+.hljs-deletion,
+.hljs-title,
+.hljs-comment .hljs-keyword,
+.hljs-link .hljs-keyword {
+  color: #8731a1;
+}
+
 .hljs-comment .hljs-keyword,
 .hljs-link .hljs-keyword {
   color: #61AFEF;
 }
 
-/* Styling for Assignment Operators */
-.hljs-selector-class>.hljs-operator,
-.hljs-selector-id>.hljs-operator,
-.hljs-selector-pseudo>.hljs-operator {
-  color: #87CEEB;
-  /* Sky Blue for assignment operators */
-}
-
-.hljs-regexp .hljs-string {
-  color: #98c379;
-}
-
-/* Styling for Reserved Functions */
 .hljs-keyword.hljs-built_in {
-  color: #40E0
+  color: #40E0;
 }
 
-/* Styling for "export" keyword */
 .hljs-keyword.hljs-meta {
   color: #d44b3e;
-  /* Function argument color #d44b3e */
 }
-
-/* You can continue to customize or extend the styling as needed for specific code elements. */
