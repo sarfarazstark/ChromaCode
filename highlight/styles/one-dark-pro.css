@@ -124,6 +124,10 @@
   font-size: 1.2em;
 }
 
+.hljs-tagrgb(176, 80, 80)name, .hljs-tag .hljs-attr {
+  color: #a45d5d;
+}
+
 .hljs-meta-keyword {
   color: #f2404d;
 }
