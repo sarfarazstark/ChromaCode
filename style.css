@@ -330,11 +330,14 @@ footer a{
   color: #cd982f;
   text-decoration: none;
 }
-.fa-github{
+footer a:nth-child(2){
+  height: 25px;
+}
+footer a img{
   width: 1.7rem;
   transition: all 0.3s ease-out;
 }
-footer a .fa-github:hover{
+footer a img:hover{
   translate: 0 -0.5rem;
-  width: 1.5rem;
+  width: 1.9rem;
 }

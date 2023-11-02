@@ -210,16 +210,17 @@ backgroundCheckbox.addEventListener('click', () => {
 // Add event listener to the dark mode checkbox
 let d = 0;
 darkMode.addEventListener('click', () => {
+  console.log('clicked');
   if(d === 0) {
     card.style.background = '#ffffffc9';
     card.querySelector('code').style.color = 'rgb(55 89 57)';
-    card.querySelector('input').style.color = 'rgba(58, 58, 58, 0.972)';
+    card.querySelector('.title').style.color = 'rgba(58, 58, 58, 0.972)';
     download();
     d = 1;
   } else {
     card.style.background = 'rgba(0, 0, 0, .75)';
     card.querySelector('code').style.color = '#6ea971';
-    card.querySelector('input').style.color = 'rgba(173, 173, 173, 0.972)';
+    card.querySelector('.title').style.color = 'rgba(173, 173, 173, 0.972)';
     download();
     d = 0;
   }
