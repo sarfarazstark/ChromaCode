@@ -131,7 +131,7 @@ function leftpad(str, len, ch) {
       node.querySelector('.title').style.outline = 'none';
       node.querySelector('code').style.overflow = 'hidden';
 
-      domtoimage.toSvg(node)
+      domtoimage.toSvg(node, {height: node.scrollHeight, width: node.scrollWidth}) 
         .then(function (dataUrl) {
           // The dataUrl variable now contains the SVG data in URL form
           href[2].href = dataUrl; // Keep the SVG data in href[2]
