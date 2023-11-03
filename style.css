@@ -396,8 +396,7 @@ footer a img:hover{
     grid-area: 1 / 2;
   }
   .resize-handle.right {
-    width: 20px;
-    height: 20px;
+    display: none;
   }
   footer{
     padding: 0;

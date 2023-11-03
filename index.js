@@ -170,7 +170,7 @@ let startWidth;
 
 const resize = (e) => {
   // Use e.touches[0].pageX for touch events and e.pageX for mouse events
-  const pageX = e.touches ? e.touches[0].pageX : e.pageX;
+  const pageX = e.pageX;
   const width = startWidth + (pageX - startX);
   main.style.width = `${width}px`;
   debouncedDownload();
@@ -191,14 +191,6 @@ resizeHandle.addEventListener('mousedown', e => {
   debouncedDownload();
 });
 
-// Add touch event listeners
-resizeHandle.addEventListener('touchstart', e => {
-  startX = e.touches[0].pageX;
-  startWidth = main.offsetWidth;
-  window.addEventListener('touchmove', resize);
-  window.addEventListener('touchend', stopResize);
-  debouncedDownload();
-});
 
 // Event listener for background transparency
 // Select the checkbox and the main element
