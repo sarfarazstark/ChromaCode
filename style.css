@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Noto+Sans:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;500;700&display=swap');
 
 * {
   margin: 0;
@@ -12,19 +13,22 @@ body {
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr;
-  grid-template-rows: 200px auto 200px;
+  grid-template-rows: 15% auto 20%;
   gap: 1rem;
   font-family: Fira code, monospace;
   /* padding-top: 5rem; */
   justify-items: center;
+  align-items: center;
 }
 header{
   display: flex;
   align-items: center;
+  font-size: xx-large;
+  user-select: none;
 }
 
 .main-code-block {
-  min-width: 550px;
+  min-width: 600px;
   max-width: 900px;
   width: 550px;
   height: 100%;
@@ -41,7 +45,7 @@ header{
   background-color: transparent;
   outline: none;
   padding: 0;
-  font-family: Noto sans, monospace;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .card {
@@ -308,13 +312,14 @@ input[type="checkbox"]:checked + .toggler{
   display: flex;
   position: fixed;
   padding: 15px;
-  bottom: 100px;
+  bottom: 15%;
   width: 800px;
   height: 90px;
   border: 1px solid #414141;
   border-radius: 10px;
   background-color: #202124;
   justify-content: space-around;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 footer{
@@ -349,28 +354,31 @@ footer a img:hover{
   body {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 200px;
+    /* grid-template-rows: 100px auto 200px; */
     gap: 1rem;
     font-family: Fira code, monospace;
-    padding-top: 2rem;
+    padding-top:0;
     justify-items: center;
     height: 100vh;
     align-items: center;
   }
 
   .main-code-block {
-    min-width: 550px;
-    max-width: 900px;
+    /* min-width: 550px;
+    max-width: 900px; */
+    /* margin-right: 60px; */
+    width: 100%;
     height: 100%;
     padding: 64px;
     background: linear-gradient(300deg, #CD2F9A, #6D3CE6);
   }
 
   .code-image {
-    width: 100vw;
+    width: 100%;
     overflow: scroll;
     display: flex;
     justify-content: center;
+    justify-content: flex-start;
   }
   .code-image::-webkit-scrollbar{
     display: none;
@@ -379,7 +387,7 @@ footer a img:hover{
   .controls {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    bottom: 50px;
+    bottom: 100px;
     width:fit-content;
     height: auto;
     gap: 15px;
@@ -392,7 +400,8 @@ footer a img:hover{
     width: 20px;
     height: 20px;
   }
-  /* footer{
-    height: 250px;
-  } */
+  footer{
+    padding: 0;
+    padding-bottom: 40px;
+  }
 }
